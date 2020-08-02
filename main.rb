@@ -4,7 +4,7 @@ def ceaser_cipher(message, shift_factor)
   alphabet = ('a'..'z').to_a
   encripted_message = ''
 
-  message.split('').each.map { |character|
+  message.chars.map { |character|
     encripted_message += if character =~ /[a-z]/
       alphabet[(alphabet.index(character.downcase) + shift_factor) % 26]
     elsif character =~ /[A-Z]/
