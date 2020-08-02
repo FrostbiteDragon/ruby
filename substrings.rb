@@ -1,4 +1,3 @@
-
 def substrings(string, dictionary)
   matches = Hash.new(0)
 
