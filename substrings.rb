@@ -1,4 +1,3 @@
-dictionary = ["below", "down", "go", "going", "horn", "how", "howdy", "it", "i", "low", "own", "part", "partner", "sit"]
 
 def substrings(string, dictionary)
   matches = Hash.new(0)
@@ -11,4 +10,5 @@ def substrings(string, dictionary)
   matches
 end
 
+dictionary = ["below", "down", "go", "going", "horn", "how", "howdy", "it", "i", "low", "own", "part", "partner", "sit"]
 puts substrings("Howdy partner, sit down! How's it going?", dictionary)
