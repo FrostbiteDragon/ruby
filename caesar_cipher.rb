@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-def ceaser_cipher(message, shift_factor)
+def caesar_cipher(message, shift_factor)
   alphabet = ('a'..'z').to_a
   encripted_message = ''
 
@@ -16,4 +16,4 @@ def ceaser_cipher(message, shift_factor)
   encripted_message
 end
 
-puts ceaser_cipher("What a string!", 5)
+puts caesar_cipher("What a string!", 5)
