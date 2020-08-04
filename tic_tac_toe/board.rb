@@ -34,11 +34,12 @@ class Board
 
       #columns
       @board.each_index
-        .any? {|i| @board.map{|row| row[i]}
+        .any? { |i| @board.map{|row| row[i]}
         .all? { |tile_symbol| tile_symbol == symbol }} ||
         
       #crosses
-      @board.each_with_index.map { |row, i| row[i] }
+      @board.each_with_index
+        .map { |row, i| row[i] }
         .all? { |tile_symbol| tile_symbol == symbol } ||
       @board.each_with_index
         .map { |row, i| row[row.count - 1 - i] }
