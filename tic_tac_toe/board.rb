@@ -12,17 +12,37 @@ class Board
   end
 
   #coordinate is string with format A1
+  #returns true if valid tern, otherwise returns false
   def play_turn(coordinate, symbol)
     alpha = ('a'..'c').to_a
 
-    x = alpha.index(coordinate.chars[0].downcase)
+    x = alpha.index(coordinate[0].downcase)
     y = coordinate[1].to_i - 1
 
-    @board[x][y] = symbol
+    if @board[x][y] == '-'; 
+      @board[x][y] = symbol
+      return true
+    else return false
+    end
+  end
 
-      return @board[x].all? { |tile_symbol| tile_symbol == symbol } ||
-      @board.map{ |row| row[y] }.all? { |tile_symbol| tile_symbol == symbol } ||
-      @board.each_with_index.map { |row, i| row[i] }.all? { |tile_symbol| tile_symbol == symbol } ||
-      @board.each_with_index.map { |row, i| row[row.count - 1 - i] }.all? { |tile_symbol| tile_symbol == symbol }
+  def won?(symbol)
+    return (
+      #rows
+      @board.any? { |item| 
+        item.all? { |tile_symbol| tile_symbol == symbol } } ||
+
+      #columns
+      @board.each_index
+        .any? {|i| @board.map{|row| row[i]}
+        .all? { |tile_symbol| tile_symbol == symbol }} ||
+        
+      #crosses
+      @board.each_with_index.map { |row, i| row[i] }
+        .all? { |tile_symbol| tile_symbol == symbol } ||
+      @board.each_with_index
+        .map { |row, i| row[row.count - 1 - i] }
+        .all? { |tile_symbol| tile_symbol == symbol }
+    )
   end
 end

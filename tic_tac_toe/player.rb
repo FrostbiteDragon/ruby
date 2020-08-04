@@ -1,5 +1,9 @@
 class Player
+  attr_reader :name
   attr_reader :symbol
 
-  def initialize(symble); @symbol = symble end
+  def initialize(name, symbol);
+    @name = name
+    @symbol = symbol 
+  end
 end
