@@ -13,15 +13,15 @@ class GameManager
 
   def play
     loop do
-        break if play_turn(@player1)
-        break if play_turn(@player2)
+      break if play_turn(@player1)
+      break if play_turn(@player2)
     end
 
     puts "Play again? y/n"
     if gets.chomp.downcase == 'y'
-        system "clear"
-        @board = Board.new
-        play
+      system "clear"
+      @board = Board.new
+      play
     end
   end
 
