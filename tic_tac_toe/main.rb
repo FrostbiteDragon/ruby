@@ -1,5 +1,5 @@
 require_relative "player.rb"
-require_relative "GameManager.rb"
+require_relative "game_manager.rb"
 
 puts "player 1"
 print "name: " 
