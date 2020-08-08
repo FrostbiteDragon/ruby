@@ -1,13 +1,22 @@
+require_relative 'extentions'
+
 class Board
   attr_reader :word
   attr_reader :letters
   attr_reader :guesses
   GUESS_LIMIT = 6
 
-  def initialize
-    @word = "flubber"
-    @letters = []
-    @guesses = 0
+  def initialize(letters = [], guesses = 0, word = nil)
+    @letters = letters
+    @guesses = guesses
+
+    if !word.nil?
+      @word = word
+    else
+      lines = File.readlines('words.txt')
+      @word = lines[rand(lines.length - 1)].chomp
+    end
+
   end
 
   #output:
@@ -15,12 +24,8 @@ class Board
   #-1 = lost
   # 1 = win
   def update(letter)
-
-
     #validate input
-    if letter.length > 1 || !(letter =~ /[[:alpha:]]/) || @letters.include?(letter)
-      return 0 
-    end 
+    if letter.length > 1 || !(letter =~ /[[:alpha:]]/) || @letters.include?(letter); return 0 end
 
     @letters << letter
     @letters.sort!
@@ -34,19 +39,7 @@ class Board
   end
 
   def display
-    message = ''
-
-    @word.chars.each { |char|
-      if (@letters.include?(char))
-        message << char
-      else
-        message << '_'
-      end
-
-      message << ' '
-    }
-
-    puts message
+    puts Extentions.format_word(@word, @letters)
     puts ''
 
     puts "Guesses left #{GUESS_LIMIT - @guesses}"

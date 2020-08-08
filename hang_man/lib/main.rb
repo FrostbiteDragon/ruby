@@ -1,3 +1,3 @@
-require_relative "game_manager.rb"
+require_relative 'menu_manager'
 
-GameManager.new.play
+MainMenu.start
