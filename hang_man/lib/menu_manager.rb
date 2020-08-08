@@ -2,7 +2,7 @@ require_relative 'game_manager'
 require_relative 'load_manager'
 require_relative 'extentions'
 
-class MainManager
+class MenuManager
   def self.start
     system 'clear'
 
@@ -17,3 +17,4 @@ class MainManager
     elsif input.eql? '3'; system 'clear'; exit!
     else start end
   end
+end

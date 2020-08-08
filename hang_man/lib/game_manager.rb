@@ -21,9 +21,9 @@ class GameManager
       input = gets.chomp.downcase
       if input.eql? 'save'
         SaveHandler.save(@board.word, @board.letters, @board.guesses, @save_index)
-        MainMenu.start
+        MenuManager.start
       elsif input.eql? 'back'
-        MainMenu.start 
+        MenuManager.start 
       end
 
       state = @board.update(input)
