@@ -1,9 +1,7 @@
 require_relative 'main_menu'
 
 class LoadMenu
-  def initialize
-    load
-  end
+  def initialize; load end
 
   private def load
     system 'clear'
@@ -14,7 +12,7 @@ class LoadMenu
 
     input = gets.chomp
     if input == 'back' 
-      MainMenu.start
+      MainMenu.new
       return
     elsif input =~ /[[:digit:]]/ && input.to_i <= saves.length
       save_index = input.to_i - 1

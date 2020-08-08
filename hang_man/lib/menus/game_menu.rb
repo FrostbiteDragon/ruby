@@ -22,10 +22,10 @@ class GameMenu
       input = gets.chomp.downcase
       if input.eql? 'save'
         SaveHandler.save(@board.word, @board.letters, @board.guesses, @save_index)
-        MainMenu.start
+        MainMenu.new
         return
       elsif input.eql? 'back'
-        MainMenu.start
+        MainMenu.new
         return
       end
 
@@ -37,19 +37,27 @@ class GameMenu
       if state == 1
         system 'clear'
         @board.display
-        puts "win!"
+        puts "\nwin!"
 
         SaveHandler.delete(@save_index) unless @save_index.nil?
+
+        puts "\npress 'Enter' to continue"
+        gets
+        MainMenu.new
         break
       end
       #display loss
       if state == -1
         system 'clear'
         @board.display
-        puts "game over"
+        puts "\ngame over"
         puts "word was #{@board.word}"
 
         SaveHandler.delete(@save_index) unless @save_index.nil?
+
+        puts "\npress 'Enter' to continue"
+        gets
+        MainMenu.new
         break
       end
     end

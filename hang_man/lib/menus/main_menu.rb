@@ -3,7 +3,9 @@ require 'menus/load_menu'
 require 'extentions'
 
 class MainMenu
-  def self.start
+  def initialize; start end
+
+  private def start
     system 'clear'
 
     puts 'options:'
