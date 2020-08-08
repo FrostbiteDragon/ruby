@@ -1,6 +1,7 @@
 require_relative 'board'
 require_relative 'save_handler'
 require_relative 'menu_manager'
+
 class GameManager
 
   def initialize(board = Board.new, save_index = nil)
