@@ -1,3 +1,5 @@
-require_relative 'menu_manager'
+#!/usr/bin/env ruby
+$LOAD_PATH << './lib'
+require 'menus/main_menu.rb'
 
-MenuManager.start
+MainMenu.start

@@ -1,4 +1,4 @@
-require "msgpack"
+require 'msgpack'
 MessagePack::DefaultFactory.register_type(0x00, Symbol)
 
 class SaveHandler

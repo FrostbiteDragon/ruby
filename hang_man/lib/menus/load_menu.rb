@@ -1,6 +1,6 @@
-require_relative 'menu_manager'
+require_relative 'main_menu'
 
-class LoadManager
+class LoadMenu
   def initialize
     load
   end
@@ -14,7 +14,7 @@ class LoadManager
 
     input = gets.chomp
     if input == 'back' 
-      MenuManager.start
+      MainMenu.start
       return
     elsif input =~ /[[:digit:]]/ && input.to_i <= saves.length
       save_index = input.to_i - 1
@@ -23,6 +23,6 @@ class LoadManager
     end
 
     save = SaveHandler.load(save_index)
-    GameManager.new(Board.new(save[:letters], save[:guesses], save[:word]), save_index)
+    GameMenu.new(Board.new(save[:letters], save[:guesses], save[:word]), save_index)
   end
 end

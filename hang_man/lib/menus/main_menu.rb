@@ -1,8 +1,8 @@
-require_relative 'game_manager'
-require_relative 'load_manager'
-require_relative 'extentions'
+require 'menus/game_menu'
+require 'menus/load_menu'
+require 'extentions'
 
-class MenuManager
+class MainMenu
   def self.start
     system 'clear'
 
@@ -12,8 +12,8 @@ class MenuManager
     puts '3 exit game'
     input = gets.chomp
 
-    if input.eql? '1'; GameManager.new
-    elsif input.eql? '2'; LoadManager.new
+    if input.eql? '1'; GameMenu.new
+    elsif input.eql? '2'; LoadMenu.new
     elsif input.eql? '3'; system 'clear'; exit!
     else start end
   end

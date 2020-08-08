@@ -1,8 +1,8 @@
-require_relative 'board'
-require_relative 'save_handler'
-require_relative 'menu_manager'
+require 'board'
+require 'save_handler'
+require 'menus/main_menu'
 
-class GameManager
+class GameMenu
 
   def initialize(board = Board.new, save_index = nil)
     @board = board
@@ -22,10 +22,10 @@ class GameManager
       input = gets.chomp.downcase
       if input.eql? 'save'
         SaveHandler.save(@board.word, @board.letters, @board.guesses, @save_index)
-        MenuManager.start
+        MainMenu.start
         return
       elsif input.eql? 'back'
-        MenuManager.start
+        MainMenu.start
         return
       end
 
