@@ -5,7 +5,7 @@ class LoadManager
     load
   end
 
-  def load
+  private def load
     system 'clear'
     puts "Enter 'back' to return to main menu"
     puts 'saves: '
@@ -15,6 +15,7 @@ class LoadManager
     input = gets.chomp
     if input == 'back' 
       MenuManager.start
+      return
     elsif input =~ /[[:digit:]]/ && input.to_i <= saves.length
       save_index = input.to_i - 1
     else 

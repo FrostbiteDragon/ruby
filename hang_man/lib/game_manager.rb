@@ -23,8 +23,10 @@ class GameManager
       if input.eql? 'save'
         SaveHandler.save(@board.word, @board.letters, @board.guesses, @save_index)
         MenuManager.start
+        return
       elsif input.eql? 'back'
-        MenuManager.start 
+        MenuManager.start
+        return
       end
 
       state = @board.update(input)
